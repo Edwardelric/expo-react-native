@@ -12,7 +12,7 @@ export default class ArticleComponent extends React.Component {
 					</Text>
 					<View style={styles.listStyle0}>
 						<Image source={require('../assets/imgs/1.jpg')} style={{flex: 1, height: 200}}/>
-						<View style={{flex: 1, backgroundColor: 'red'}}>
+						<View style={{flex: 1}}>
 							<Image source={require('../assets/imgs/2.jpeg')} style={{flex: 1, height: 100}}/>
 							<Image source={require('../assets/imgs/1.jpg')} style={{flex: 1, height: 100}}/>
 						</View>

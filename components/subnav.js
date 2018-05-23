@@ -1,8 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 import { Icon } from 'native-base';
 
 export default class SubNavComponent extends React.Component {
+	constructor(props) {
+		super(props);
+	}
 	render() {
 		return (
 			<View style={styles.wrapper}>
@@ -10,8 +13,8 @@ export default class SubNavComponent extends React.Component {
 					[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => {
 						return (
 							<View style={styles.list} key={index}>
-								<Icon name="home" style={styles.fontSize}/>
-								<Text style={styles.textAlign}>保养{index + 1}</Text>
+									<Icon name="home" style={styles.fontSize}/>
+									<Text style={styles.textAlign}>保养{index + 1}</Text>
 							</View>
 						)
 					})

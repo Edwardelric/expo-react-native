@@ -5,29 +5,25 @@ export default class FooterComponent extends React.Component {
 	render() {
 		let footerData = [
 			{
-				badge: true,
-				badgeNum: 2,
+				badgeNum: 0,
 				iconName: 'apps',
 				txt: 'Apps',
-				isActive: false
+				isActive: true
 			},
 			{
-				badge: false,
 				badgeNum: 0,
 				iconName: 'camera',
 				txt: 'Camer',
 				isActive: false
 			},
 			{
-				badge: true,
-				badgeNum: 51,
+				badgeNum: 0,
 				iconName: 'navigate',
 				txt: 'Nav',
-				isActive: true
+				isActive: false
 			},
 			{
-				badge: false,
-				badgeNum: 0,
+				badgeNum: 3,
 				iconName: 'person',
 				txt: 'Person',
 				isActive: false
@@ -39,8 +35,13 @@ export default class FooterComponent extends React.Component {
 					{
 						footerData.map((item, index) => {
 							return (
-								<Button badge = {item.badge}  active={item.isActive}  vertical key={index}>
-									{item.badge ? <Badge><Text>{item.badgeNum}</Text></Badge> : ''}
+								<Button
+									badge = {!!item.badgeNum}
+									active={item.isActive}
+									vertical
+									key={index}
+								>
+									{item.badgeNum ? <Badge><Text>{item.badgeNum}</Text></Badge> : ''}
 									<Icon active name={item.iconName} />
 									<Text>{item.txt}</Text>
 								</Button>
