@@ -6,8 +6,8 @@ import Swiper from '../components/swiper';
 import HeaderTips from '../components/headertips';
 import Announce from '../components/announce';
 import SubNav from '../components/subnav';
+import Article from '../components/article';
 import FooterComponent from './footer';
-
 
 export default class Home extends React.Component {
 	render() {
@@ -18,6 +18,7 @@ export default class Home extends React.Component {
 					<HeaderTips/>
 					<Announce/>
 					<SubNav/>
+					<Article/>
 				</Content>
 				<FooterComponent/>
 			</Container>

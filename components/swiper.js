@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import Swiper from 'react-native-swiper';
 
 export default class SwiperComponent extends React.Component {
@@ -17,7 +17,7 @@ export default class SwiperComponent extends React.Component {
 							let style = styles[`color${index}`];
 							return (
 								<View key={index} style={style}>
-									<Text>{index}</Text>
+									<Image source={require('../assets/imgs/3.jpeg')}/>
 								</View>
 							)
 						})

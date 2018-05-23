@@ -11,7 +11,7 @@ export default class SubNavComponent extends React.Component {
 						return (
 							<View style={styles.list} key={index}>
 								<Icon name="home" style={styles.fontSize}/>
-								<Text>保养</Text>
+								<Text style={styles.textAlign}>保养{index + 1}</Text>
 							</View>
 						)
 					})
@@ -37,6 +37,10 @@ const styles = StyleSheet.create({
 		paddingRight: 20
 	},
 	fontSize: {
-		fontSize: 22
+		fontSize: 22,
+		textAlign: 'center'
+	},
+	textAlign: {
+		textAlign: 'center'
 	}
 });

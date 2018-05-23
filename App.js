@@ -14,7 +14,7 @@ Text.prototype.render = function (...args) {
 		});
   } else {
 		return React.cloneElement(origin, {
-			style: [origin.props.style, {color: '#333', textAlign: 'center'}]
+			style: [origin.props.style, {color: '#333'}]
 		});
   }
 };
