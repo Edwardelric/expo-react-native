@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Text, Button } from 'react-native';
-import { Container, Content } from 'native-base';
+import { Container, Content, Spinner } from 'native-base';
 
 import Swiper from '../components/swiper';
 import HeaderTips from '../components/headertips';
@@ -9,6 +9,7 @@ import SubNav from '../components/subnav';
 import Article from '../components/article';
 import FooterComponent from '../components/footer';
 
+
 export default class Home extends React.Component {
 	constructor(props) {
 		super(props);
@@ -16,24 +17,16 @@ export default class Home extends React.Component {
 	render() {
 		const { navigation } = this.props;
 		const itemId = navigation.getParam('itemId', '');
-		
 		return (
 			<Container>
 				<Content style={{backgroundColor: '#fff'}}>
-					<Swiper/>
-					<Button
-						title="test"
-						onPress = {() => this.props.navigation.navigate('list', {
-							itemId: 86,
-							otherParam: 123
-						})}
-					/>
-					<HeaderTips/>
-					<Announce/>
-					<SubNav/>
-					<Article/>
+					<Swiper navigation={this.props.navigation}/>
+					<HeaderTips navigation={this.props.navigation}/>
+					<Announce navigation={this.props.navigation}/>
+					<SubNav navigation={this.props.navigation}/>
+					<Article navigation={this.props.navigation}/>
 				</Content>
-				{/*<FooterComponent/>*/}
+				{/*<FooterComponent navigation={this.props.navigation}/>*/}
 			</Container>
 		);
 	}

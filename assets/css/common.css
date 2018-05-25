@@ -1,0 +1,117 @@
+/* swiper.css */
+.swiperWrapper {
+    height: 160;
+    background: green;
+}
+.color0 {
+    flex: 1;
+    backgroundColor: red;
+}
+.color1 {
+    flex: 1;
+    backgroundColor: blue;
+}
+/* swiper.css */
+
+/* headertips.css */
+.headerTips {
+    position: absolute;
+    top: 10;
+    left: 0;
+    flex: 1;
+    flex-Direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.address {
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 10;
+}
+.tips {
+    flex: 1;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10;
+}
+.paddingLR {
+    padding-left: 5;
+    padding-right: 5;
+    font-size: 20;
+}
+.fontSize {
+    font-size: 20;
+}
+/* headertips.css */
+
+/* announce.css */
+.card {
+    margin-left: 10;
+    margin-right: 10;
+    margin-top: -10;
+}
+.anfontSize {
+    font-size: 12;
+    font-weight: 400;
+}
+.color {
+    font-size: 12;
+    color: red;
+}
+
+/* subnav.css */
+.subNavWrapper {
+    flex: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 20;
+    border-bottom-width: 1;
+    border-bottom-color: #333;
+}
+.list {
+    margin-top: 10;
+    padding-left: 20;
+    padding-right: 20;
+}
+.subfontSize {
+    font-size: 22;
+    text-align: center;
+}
+.textAlign {
+    text-align: center
+}
+
+/* article.css */
+.articleWrapper {
+    padding-left: 16;
+    padding-right: 16;
+    padding-bottom: 16;
+    border-bottom-width: 1;
+    border-bottom-color: #333;
+}
+.title {
+    padding-top: 10;
+    padding-bottom: 10;
+    color: #000;
+    font-size: 14;
+}
+.txt {
+    padding-left: 10;
+    font-size: 12;
+    font-weight: 300;
+}
+.listStyle0 {
+    overflow: hidden;
+    flex-direction: row;
+}
+.scrollTxt {
+    padding-top: 10;
+    padding-bottom: 4;
+    color: #000;
+    font-size: 16;
+    font-weight: 600;
+}
+/* article.css */

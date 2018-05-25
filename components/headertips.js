@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 import { Icon } from 'native-base';
+
+import styles from '../assets/css/common.css'
 
 export default class HeaderTipsComponent extends React.Component {
 	render() {
@@ -19,36 +21,3 @@ export default class HeaderTipsComponent extends React.Component {
 		)
 	}
 }
-
-const styles = StyleSheet.create({
-	headerTips: {
-		position: 'absolute',
-		top: 10,
-		left: 0,
-		flex: 1,
-		flexDirection: 'row',
-		justifyContent: 'space-between',
-		alignItems: 'center'
-	},
-	address: {
-		flex: 1,
-		flexDirection: 'row',
-		alignItems: 'center',
-		paddingLeft: 10
-	},
-	tips: {
-		flex: 1,
-		flexDirection: 'row',
-		justifyContent: 'flex-end',
-		alignItems: 'center',
-		paddingRight: 10
-	},
-	paddingLR: {
-		paddingLeft: 5,
-		paddingRight: 5,
-		fontSize: 20
-	},
-	fontSize: {
-		fontSize: 20
-	}
-});

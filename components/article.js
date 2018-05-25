@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
+import { View, Text, ScrollView, Image } from 'react-native';
+
+import styles from '../assets/css/common.css';
 
 export default class ArticleComponent extends React.Component {
 	render() {
 		return (
-			<View style={styles.wrapper}>
+			<View style={styles.articleWrapper}>
 				<View>
 					<Text style={styles.title}>
 						当前推荐
@@ -48,35 +50,3 @@ export default class ArticleComponent extends React.Component {
 		)
 	}
 }
-
-const styles = StyleSheet.create({
-	wrapper: {
-		paddingLeft: 16,
-		paddingRight: 16,
-		paddingBottom: 16,
-		borderBottomWidth: 1,
-		borderBottomColor: '#333',
-	},
-	title: {
-		paddingTop: 10,
-		paddingBottom: 10,
-		color: '#000',
-		fontSize: 14,
-	},
-	txt: {
-		paddingLeft: 10,
-		fontSize: 12,
-		fontWeight: '300'
-	},
-	listStyle0: {
-		flexDirection: 'row',
-		overflow: 'hidden'
-	},
-	scrollTxt: {
-		paddingTop: 10,
-		paddingBottom: 4,
-		color: '#000',
-		fontSize: 16,
-		fontWeight: '600'
-	}
-})

@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "fetch-intercept": "^2.2.3",
     "jest-expo": "~27.0.0",
+    "react-native-css-transformer": "^1.1.0",
     "react-native-scripts": "1.14.0",
     "react-native-swiper": "^1.5.13",
     "react-test-renderer": "16.3.1"
@@ -28,5 +30,10 @@
     "react-native-grid-list": "^1.0.8",
     "react-native-update": "^5.0.0",
     "react-navigation": "^2.0.1"
+  },
+  "rnpm": {
+    "assets": [
+      "fonts"
+    ]
   }
 }

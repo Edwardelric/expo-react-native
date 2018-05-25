@@ -2,9 +2,6 @@ import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 
 export default class PersonComponent extends React.Component {
-	static navigationOptions = {
-		title: 'Person',
-	};
 	render() {
 		const { navigation } = this.props;
 		const itemId = navigation.getParam('itemId', 'NO-ID');
@@ -18,9 +15,7 @@ export default class PersonComponent extends React.Component {
 				<Button
 					title="Go to Details... again"
 					onPress={() =>
-						this.props.navigation.navigate('Home', {
-							itemId: 12312
-						})
+						this.props.navigation.goBack()
 					}
 				/>
 			</View>

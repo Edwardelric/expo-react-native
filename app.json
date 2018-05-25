@@ -1,5 +1,9 @@
 {
   "expo": {
-    "sdkVersion": "27.0.0"
+    "sdkVersion": "27.0.0",
+    "packagerOpts": {
+      "sourceExts": ["js", "jsx", "css"],
+      "transformer": "node_modules/react-native-css-transformer/index.js"
+    }
   }
 }

@@ -1,11 +1,23 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Swiper from 'react-native-swiper';
 
+import styles from '../assets/css/common.css';
+
 export default class SwiperComponent extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { imgList: [] };
+	}
+	componentWillMount() {
+		fetch('https://www.easy-mock.com/mock/592e626b91470c0ac1fed9b6/products_1496212075258/member#!method=get').then(res => {
+			this.setState({imgList: [1, 2, 3]});
+		})
+	}
 	render() {
+		const { navigation } = this.props;
 		return (
-			<View style={styles.wrapper}>
+			<View style={styles.swiperWrapper}>
 				<Swiper
 					autoplay={true}
 					paginationStyle={{bottom: 20, left: null, right: 10}}
@@ -15,10 +27,19 @@ export default class SwiperComponent extends React.Component {
 					{
 						[1, 2, 3].map((item, index) => {
 							let style = styles[`color${index}`];
+							let url = [
+								require('../assets/imgs/1.jpg'),
+								require('../assets/imgs/2.jpeg'),
+								require('../assets/imgs/3.jpeg')
+							][index]
 							return (
-								<View key={index} style={style}>
-									<Image source={require('../assets/imgs/3.jpeg')}/>
-								</View>
+								<TouchableOpacity
+									key={index}
+									style={style}
+									onPress={() => navigation.navigate("List")}
+								>
+									<Image source={url}/>
+								</TouchableOpacity>
 							)
 						})
 					}
@@ -27,18 +48,3 @@ export default class SwiperComponent extends React.Component {
 		)
 	}
 }
-
-const styles = StyleSheet.create({
-	wrapper: {
-		height: 160,
-		backgroundColor: 'green'
-	},
-	color0: {
-		flex: 1,
-		backgroundColor: 'red'
-	},
-	color1: {
-		flex: 1,
-		backgroundColor: 'blue'
-	}
-});

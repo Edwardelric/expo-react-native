@@ -1,20 +1,28 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, Button, TouchableOpacity } from 'react-native';
 import { Icon } from 'native-base';
+
+import styles from '../assets/css/common.css';
 
 export default class SubNavComponent extends React.Component {
 	constructor(props) {
 		super(props);
 	}
 	render() {
+		const { navigation } = this.props;
 		return (
-			<View style={styles.wrapper}>
+			<View style={styles.subNavWrapper}>
 				{
 					[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => {
+						let routerName = ['Home', 'Store', 'Discover', 'Person'][Math.ceil(index % 4)];
 						return (
 							<View style={styles.list} key={index}>
-									<Icon name="home" style={styles.fontSize}/>
+								<TouchableOpacity
+									onPress={() => navigation.navigate(routerName)}
+								>
+									<Icon name="home" style={styles.subfontSize}/>
 									<Text style={styles.textAlign}>保养{index + 1}</Text>
+								</TouchableOpacity>
 							</View>
 						)
 					})
@@ -23,27 +31,3 @@ export default class SubNavComponent extends React.Component {
 		)
 	}
 }
-
-const styles = StyleSheet.create({
-	wrapper: {
-		flex: 1,
-		flexDirection: 'row',
-		flexWrap: 'wrap',
-		justifyContent: 'space-between',
-		paddingBottom: 20,
-		borderBottomColor: '#333',
-		borderBottomWidth: 1
-	},
-	list: {
-		marginTop: 10,
-		paddingLeft: 20,
-		paddingRight: 20
-	},
-	fontSize: {
-		fontSize: 22,
-		textAlign: 'center'
-	},
-	textAlign: {
-		textAlign: 'center'
-	}
-});

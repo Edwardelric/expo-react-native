@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { TabNavigator, createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import { TabNavigator, StackNavigator, createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import { Footer, FooterTab, Button, Badge, Icon, IconBadge, Text as NBText} from 'native-base'
 
 import Home from './pages/home';
@@ -11,94 +11,98 @@ import List from './pages/list';
 
 import footerData from './store/index';
 
-// 设置全局text的样式
-let oldRender = Text.prototype.render;
-Text.prototype.render = function (...args) {
-	let origin = oldRender.call(this, ...args);
-	// 判断text是否已经被一些组件设置了颜色样式
-	if (origin.props.style && (origin.props.style.color || origin.props.style.fontSize || origin.props.style.textAlign)) {
-		return React.cloneElement(origin, {
-			style: [origin.props.style]
-		});
-  } else {
-		return React.cloneElement(origin, {
-			style: [origin.props.style, {color: '#333'}]
-		});
-  }
-};
+import { http } from './utils/http';
+import { resetText } from './utils/util';
 
-//
-// export default createStackNavigator(
-// 	{
-// 		Home,
-// 		Store,
-// 		Discover,
-// 		Person
-// 	},
-// 	{
-// 		initialRouteName: 'Home',
-// 	}
-// )
+http();
+resetText();
 
-
-const TabNavigatorCom = TabNavigator({
-	Home: {
-		screen: Home
-	},
-	Store: {
-		screen: Store
-	},
-	Discover: {
-		screen: Discover
-	},
-	Person: {
-		screen: Person
-	},
-	list: {
-		screen: List,
-		navigationOptions: {
-			tabBarVisible: false
+export default createStackNavigator(
+	{
+		Home: {
+			screen: Home,
+			path: 'home',
+			navigationOptions: ({ navigation }) => ({
+				title: `Home`,
+			})
+		},
+		Store: {
+			screen: Store,
+			path: 'store'
+		},
+		Discover: {
+			screen: Discover,
+			path: 'discover/:id',
+			navigationOptions: ({ navigation }) => ({
+				title: `Discover`,
+			})
+		},
+		Person: {
+			screen: Person,
+			path: 'person',
+			navigationOptions: ({ navigation }) => ({
+				title: `Person`
+			})
+		},
+		List: {
+			screen: List,
+			path: 'list'
 		}
+	},
+	{
+		initialRouteName: 'Store',
+		mode: 'float'
 	}
-},{
-	mode: 'modal',
-	tabBarPosition: 'bottom',
-	swipeEnabled: false,
-	tabBarComponent: props => {
-		return (
-			<Footer>
-				<FooterTab>
-					{
-						footerData.map((item, index) => {
-							return (
-								<Button
-									vertical
-									key={index}
-									badge = {!!item.badgeNum}
-									active={!!(props.navigationState.index === index)}
-									onPress = {() => props.navigation.navigate(item.navigateName, {
-										itemId: 86,
-										otherParam: item.iconName
-									})}
-								>
-									{item.badgeNum ? <Badge><NBText>{item.badgeNum}</NBText></Badge> : ''}
-									<Icon active name={item.iconName} />
-									<NBText>{item.txt}</NBText>
-								</Button>
-							);
-						})
-					}
-				</FooterTab>
-			</Footer>
-		)
-	}
-})
+)
 
-export default class App extends React.Component {
-	render() {
-		return (
-				<TabNavigatorCom/>
+// export default createBottomTabNavigator({
+// 	Home: {
+// 		screen: Home
+// 	},
+// 	Store: {
+// 		screen: Store
+// 	},
+// 	Discover: {
+// 		screen: Discover
+// 	},
+// 	Person: {
+// 		screen: Person
+// 	},
+// 	List: {
+// 		screen: List,
+// 		navigationOptions: {
+// 			tabBarVisible: false
+// 		}
+// 	}
+// },{
+// 	initialRouteName: 'Home',
+// 	tabBarComponent: props => {
+// 		return (
+// 			<Footer>
+// 				<FooterTab>
+// 					{
+// 						footerData.map((item, index) => {
+// 							return (
+// 								<Button
+// 									vertical
+// 									key={index}
+// 									badge = {!!item.badgeNum}
+// 									active={!!(props.navigation.state.index === index)}
+// 									onPress = {() => props.navigation.navigate(item.navigateName, {
+// 										itemId: 86,
+// 										otherParam: item.iconName
+// 									})}
+// 								>
+// 									{item.badgeNum ? <Badge><NBText>{item.badgeNum}</NBText></Badge> : ''}
+// 									<Icon active name={item.iconName} />
+// 									<NBText>{item.txt}</NBText>
+// 								</Button>
+// 							);
+// 						})
+// 					}
+// 				</FooterTab>
+// 			</Footer>
+// 		)
+// 	}
+// })
 
-		)
-	}
-}
